@@ -63,7 +63,7 @@ public class SpaListAdapter extends BaseAdapter {
 				true);
 		final Context context = rootView.getContext();
 
-		Button btn_choose = (Button) rootView.findViewById(R.id.btn_choose);
+//		Button btn_choose = (Button) rootView.findViewById(R.id.btn_choose);
 
 		Txt_Spa_Name = (TextView) rootView.findViewById(R.id.txt_list_spa_name);
 
@@ -75,7 +75,7 @@ public class SpaListAdapter extends BaseAdapter {
 
 		Txt_Spa_Name.setTypeface(font);
 		Txt_Spa_Area.setTypeface(font);
-		btn_choose.setTypeface(font);
+//		btn_choose.setTypeface(font);
 
 		
 
@@ -89,23 +89,23 @@ public class SpaListAdapter extends BaseAdapter {
 //		Txt_Spa_Area.setText(spaDetails.get(MakeAppointmentFragment.SPA_Address));
 		
 		Spa_Id=spaDetails.get("spa_id");
-		btn_choose.setTag(Integer.parseInt(Spa_Id));
+//		btn_choose.setTag(Integer.parseInt(Spa_Id));
 //		String Spa_name = data.get(position);
 //		Txt_Spa_Name.setText(Spa_name);
+//
+//		btn_choose.setOnClickListener(new View.OnClickListener() {
 
-		btn_choose.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent i = new Intent(context, Select_Therapy_Activity.class);
-				i.putExtra("Spa_Id", String.valueOf(v.getTag()));
-				
-//				Toast.makeText(activity, String.valueOf(v.getTag()), Toast.LENGTH_SHORT).show();
-				activity.startActivity(i);
-
-			}
-		});
+//			@Override
+//			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				Intent i = new Intent(context, Select_Therapy_Activity.class);
+//				i.putExtra("Spa_Id", String.valueOf(v.getTag()));
+//				
+////				Toast.makeText(activity, String.valueOf(v.getTag()), Toast.LENGTH_SHORT).show();
+//				activity.startActivity(i);
+//
+//			}
+//		});
 		return rootView;
 	}
 

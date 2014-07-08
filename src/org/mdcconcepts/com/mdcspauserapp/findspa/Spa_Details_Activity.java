@@ -13,13 +13,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mdcconcepts.com.mdcspauserapp.R;
-import org.mdcconcepts.com.mdcspauserapp.makeappointment.SetTherapistActivity;
 import org.mdcconcepts.com.mdcspauserapp.notification.MyReceiver;
 import org.mdcconcepts.com.mdcspauserapp.serverhandler.JSONParser;
 import org.mdcconcepts.com.mdcspauserapp.util.Util;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
+import android.app.ActionBar;
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.PendingIntent;
@@ -33,10 +32,6 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -68,7 +63,6 @@ public class Spa_Details_Activity extends FragmentActivity {
 	private static final String TAG_SUCCESS = "success";
 	private static final String TAG_MESSAGE = "message";
 
-
 	private List<String> ArrayList_AllTherapiesList = new ArrayList<String>();
 	private ArrayList<String> ArrayList_AllTherapiesIdList = new ArrayList<String>();
 
@@ -96,247 +90,266 @@ public class Spa_Details_Activity extends FragmentActivity {
 	private int AM_PM;
 	private String Therapist_Id;
 
+	ActionBar actionBar;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_spa_details);
 
-		
 		Intent i = getIntent();
-		
+
 		Spa_Name = i.getStringExtra("Spa_Name");
 		Spa_Id = Integer.parseInt(i.getStringExtra("Spa_Id"));
-		
-		Txt_Spa_Addr=(TextView)findViewById(R.id.txt_spa_addr);
-		Txt_Spa_desc=(TextView)findViewById(R.id.txt_spa_dec);
-		Txt_Spa_name=(TextView)findViewById(R.id.txt_spa_name);
-		
-		Typeface font=Typeface.createFromAsset(getAssets(), "Raleway-Light.otf");
-		
+
+		Txt_Spa_Addr = (TextView) findViewById(R.id.txt_spa_addr);
+		Txt_Spa_desc = (TextView) findViewById(R.id.txt_spa_dec);
+		Txt_Spa_name = (TextView) findViewById(R.id.txt_spa_name);
+
+		Typeface font = Typeface.createFromAsset(getAssets(),
+				"Raleway-Light.otf");
+
 		Txt_Spa_name.setTypeface(font);
 		Txt_Spa_desc.setTypeface(font);
 		Txt_Spa_Addr.setTypeface(font);
-		
-		Txt_Spa_name.setText(Spa_Name);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-		
 
-//		edt_spa_name = (EditText) findViewById(R.id.edt_spa_details_name);
-//		
-//		edt_spa_name.setText(Spa_Name);
-//
-//		SpinnerController_TherapyList_Spa_Details = (Spinner) findViewById(R.id.SpinnerController_TherapyList_SpaDetails);
-//		
-//		SpinnerController_TimeForServicelist_Spa_Details = (Spinner) findViewById(R.id.SpinnerController_TimeForServicelist_SpaDetails);
-//		
-//		TextViewController_Price_Spa_Details = (TextView) findViewById(R.id.TextViewController_Price_Spa_Details);
-//		
-//		TextViewController_YourTherapist_Spa_Details = (TextView) findViewById(R.id.TextViewController_YourTherapist_Spa_Details);
-//		
-//		AppointmentDate_TextViewController_Spa_Details = (TextView) findViewById(R.id.AppointmentDate_TextViewController_Spa_Details);
-//		
-//		AppointmentTime_TextViewController_Spa_Details = (TextView) findViewById(R.id.AppointmentTime_TextViewController_Spa_Details);
-//		
-//		date_ButtonController_SpaDetails = (Button) findViewById(R.id.Date_ButtonController_Spa_Details);
-//		
-//		ButtonController_ChooseTherapist_SpaDetails = (Button) findViewById(R.id.ButtonController_ChooseTherapist_Spa_Details);
-//		
-//		Time_ButtonController_SpaDetails = (Button) findViewById(R.id.Time_ButtonController_Spa_Details);
-//		
-//		MakeAppointment_ButtonController = (Button) findViewById(R.id.MakeAppointment_ButtonController_SpaDetails);
-//		
-//		btn_view_spa_profile=(Button)findViewById(R.id.btn_view_spa_profile);
-//
-//		/**
-//		 * Calendar Instance
-//		 */
-//		cal = Calendar.getInstance();
-//		day = cal.get(Calendar.DAY_OF_MONTH);
-//		month = cal.get(Calendar.MONTH);
-//		year = cal.get(Calendar.YEAR);
-//		hour = cal.get(Calendar.HOUR);
-//		minute = cal.get(Calendar.MINUTE);
-//		AM_PM = cal.get(Calendar.AM_PM);
-//
-//		String AM_PM_String[] = { "AM", "PM" };
-//		month = month + 1;
-//		
-//		AppointmentDate_TextViewController_Spa_Details.setText(day + " / "
-//				+ (month) + " / " + year);
-//		AppointmentTime_TextViewController_Spa_Details.setText(hour + " : "
-//				+ (minute) + " : " + AM_PM_String[this.AM_PM]);
-//
-//		
-//		SpinnerController_TherapyList_Spa_Details
-//				.setOnItemSelectedListener(new OnItemSelectedListener() {
-//					@Override
-//					public void onItemSelected(AdapterView<?> parentView,
-//							View selectedItemView, int position, long id) {
-//
-//						Log.d("Inside Spinner", "Spinner");
-//						Therapies_Id = Integer
-//								.parseInt(ArrayList_AllTherapiesIdList
-//										.get(position));
-//						new GetTimeForService().execute();
-//						ArrayList_AllTimeForServiceList.clear();
-//						ArrayList_AllPriceForServiceList.clear();
-//						isTherapistset = false;
-//						TextViewController_YourTherapist_Spa_Details
-//								.setText("No Therapist Selected");
-//					}
-//
-//					@Override
-//					public void onNothingSelected(AdapterView<?> parentView) {
-//
-//					}
-//
-//				});
-//		
-//		SpinnerController_TimeForServicelist_Spa_Details
-//				.setOnItemSelectedListener(new OnItemSelectedListener() {
-//					@Override
-//					public void onItemSelected(AdapterView<?> parentView,
-//							View selectedItemView, int position, long id) {
-//						TextViewController_Price_Spa_Details
-//								.setText(ArrayList_AllPriceForServiceList
-//										.get(position));
-//						isTherapistset = false;
-//						TextViewController_YourTherapist_Spa_Details
-//								.setText("No Therapist Selected");
-//
-//					}
-//
-//					@Override
-//					public void onNothingSelected(AdapterView<?> parentView) {
-//
-//					}
-//
-//				});
-//
-//		date_ButtonController_SpaDetails
-//				.setOnClickListener(new OnClickListener() {
-//
-//					@Override
-//					public void onClick(View v) {
-//						Log.d("Date controller", "Click");
-//						final Calendar c = Calendar.getInstance();
-//						year = c.get(Calendar.YEAR);
-//						month = c.get(Calendar.MONTH);
-//						day = c.get(Calendar.DAY_OF_MONTH);
-//
-//						DatePickerDialog dpdFromDate = new DatePickerDialog(
-//								Spa_Details_Activity.this, datePickerListener,
-//								year, month, day);
-//						dpdFromDate.show();
-//						isTherapistset = false;
-//						TextViewController_YourTherapist_Spa_Details
-//								.setText("No Therapist Selected");
-//
-//					}
-//				});
-//
-//		Time_ButtonController_SpaDetails
-//				.setOnClickListener(new OnClickListener() {
-//					@Override
-//					public void onClick(View v) {
-//						final Calendar c = Calendar.getInstance();
-//						hour = c.get(Calendar.HOUR_OF_DAY);
-//						minute = c.get(Calendar.MINUTE);
-//
-//						TimePickerDialog dpdFromDate = new TimePickerDialog(
-//								Spa_Details_Activity.this, timePickerListener,
-//								hour, minute, false);
-//						dpdFromDate.show();
-//						isTherapistset = false;
-//						TextViewController_YourTherapist_Spa_Details
-//								.setText("No Therapist Selected");
-//					}
-//				});
-//		
-//		MakeAppointment_ButtonController
-//				.setOnClickListener(new OnClickListener() {
-//					@Override
-//					public void onClick(View v) {
-//
-//						if (isTherapistset) {
-//							new MakeAnAppointment().execute();
-//						} else {
-//							Toast.makeText(Spa_Details_Activity.this,
-//									"Please Choose Therapist ... !",
-//									Toast.LENGTH_LONG).show();
-//							// Log.d("Price iD", ArrayList_AllIDForServiceList
-//							// .get(SpinnerController_TimeForServicelist
-//							// .getSelectedItemPosition()));
-//
-//						}
-//
-//					}
-//				});
-//		
-//		ButtonController_ChooseTherapist_SpaDetails
-//				.setOnClickListener(new OnClickListener() {
-//
-//					@SuppressLint("SimpleDateFormat")
-//					@Override
-//					public void onClick(View v) {
-//
-////						Util.Spa_Name = SpinnerController_SpaList_Spa_Details.getSelectedItem().toString();
-//						Util.Spa_Name = Spa_Name;
-//						Calendar Appointment_TimeStamp = Calendar.getInstance();
-//
-//						Appointment_TimeStamp.set(Calendar.DAY_OF_MONTH, day);
-//						Appointment_TimeStamp.set(Calendar.MONTH, month - 1);
-//						Appointment_TimeStamp.set(Calendar.YEAR, year);
-//						Appointment_TimeStamp.set(Calendar.HOUR, hour);
-//						Appointment_TimeStamp.set(Calendar.MINUTE, minute);
-//						Appointment_TimeStamp.set(Calendar.AM_PM, AM_PM);
-//
-//						SimpleDateFormat formatter = new SimpleDateFormat(
-//								"yyyy-MM-dd HH:mm:ss");
-//						Util.Appointment_Time = formatter
-//								.format(Appointment_TimeStamp.getTime());
-//						Log.d("Appointment_Time", "" + Util.Appointment_Time);
-//
-//						// Create The Intent and Start The Activity to get The
-//						// message
-//						Intent intentGetMessage = new Intent(
-//								Spa_Details_Activity.this,
-//								SetTherapistActivity.class);
-//						intentGetMessage
-//								.putExtra(
-//										"Therapies_Id",
-//										ArrayList_AllTherapiesIdList
-//												.get(SpinnerController_TherapyList_Spa_Details
-//														.getSelectedItemPosition()));
-//						startActivityForResult(intentGetMessage, 2);// Activity
-//																	// is
-//																	// started
-//																	// with
-//																	// requestCode
-//																	// 2
-//						isTherapistset = false;
-//						TextViewController_YourTherapist_Spa_Details
-//								.setText("No Therapist Selected");
-//					}
-//				});
-//
-//		btn_view_spa_profile.setOnClickListener(new View.OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//			
-//				Intent i=new Intent(Spa_Details_Activity.this,Spa_Profile.class);
-//				startActivity(i);
-//			}
-//		});
-//		// Toast.makeText(getApplicationContext(), Spa_Name+ "\n"+Spa_Id,
-//		// Toast.LENGTH_LONG).show();
-//		
-//		new GetTherapies().execute();
+		Txt_Spa_name.setText(Spa_Name);
+
+		actionBar = getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+		// Tab spa_profile=actionBar.newTab().setText("Spa Profile");
+		// actionBar.addTab(spa_profile);
+
+		// edt_spa_name = (EditText) findViewById(R.id.edt_spa_details_name);
+		//
+		// edt_spa_name.setText(Spa_Name);
+		//
+		// SpinnerController_TherapyList_Spa_Details = (Spinner)
+		// findViewById(R.id.SpinnerController_TherapyList_SpaDetails);
+		//
+		// SpinnerController_TimeForServicelist_Spa_Details = (Spinner)
+		// findViewById(R.id.SpinnerController_TimeForServicelist_SpaDetails);
+		//
+		// TextViewController_Price_Spa_Details = (TextView)
+		// findViewById(R.id.TextViewController_Price_Spa_Details);
+		//
+		// TextViewController_YourTherapist_Spa_Details = (TextView)
+		// findViewById(R.id.TextViewController_YourTherapist_Spa_Details);
+		//
+		// AppointmentDate_TextViewController_Spa_Details = (TextView)
+		// findViewById(R.id.AppointmentDate_TextViewController_Spa_Details);
+		//
+		// AppointmentTime_TextViewController_Spa_Details = (TextView)
+		// findViewById(R.id.AppointmentTime_TextViewController_Spa_Details);
+		//
+		// date_ButtonController_SpaDetails = (Button)
+		// findViewById(R.id.Date_ButtonController_Spa_Details);
+		//
+		// ButtonController_ChooseTherapist_SpaDetails = (Button)
+		// findViewById(R.id.ButtonController_ChooseTherapist_Spa_Details);
+		//
+		// Time_ButtonController_SpaDetails = (Button)
+		// findViewById(R.id.Time_ButtonController_Spa_Details);
+		//
+		// MakeAppointment_ButtonController = (Button)
+		// findViewById(R.id.MakeAppointment_ButtonController_SpaDetails);
+		//
+		// btn_view_spa_profile=(Button)findViewById(R.id.btn_view_spa_profile);
+		//
+		// /**
+		// * Calendar Instance
+		// */
+		// cal = Calendar.getInstance();
+		// day = cal.get(Calendar.DAY_OF_MONTH);
+		// month = cal.get(Calendar.MONTH);
+		// year = cal.get(Calendar.YEAR);
+		// hour = cal.get(Calendar.HOUR);
+		// minute = cal.get(Calendar.MINUTE);
+		// AM_PM = cal.get(Calendar.AM_PM);
+		//
+		// String AM_PM_String[] = { "AM", "PM" };
+		// month = month + 1;
+		//
+		// AppointmentDate_TextViewController_Spa_Details.setText(day + " / "
+		// + (month) + " / " + year);
+		// AppointmentTime_TextViewController_Spa_Details.setText(hour + " : "
+		// + (minute) + " : " + AM_PM_String[this.AM_PM]);
+		//
+		//
+		// SpinnerController_TherapyList_Spa_Details
+		// .setOnItemSelectedListener(new OnItemSelectedListener() {
+		// @Override
+		// public void onItemSelected(AdapterView<?> parentView,
+		// View selectedItemView, int position, long id) {
+		//
+		// Log.d("Inside Spinner", "Spinner");
+		// Therapies_Id = Integer
+		// .parseInt(ArrayList_AllTherapiesIdList
+		// .get(position));
+		// new GetTimeForService().execute();
+		// ArrayList_AllTimeForServiceList.clear();
+		// ArrayList_AllPriceForServiceList.clear();
+		// isTherapistset = false;
+		// TextViewController_YourTherapist_Spa_Details
+		// .setText("No Therapist Selected");
+		// }
+		//
+		// @Override
+		// public void onNothingSelected(AdapterView<?> parentView) {
+		//
+		// }
+		//
+		// });
+		//
+		// SpinnerController_TimeForServicelist_Spa_Details
+		// .setOnItemSelectedListener(new OnItemSelectedListener() {
+		// @Override
+		// public void onItemSelected(AdapterView<?> parentView,
+		// View selectedItemView, int position, long id) {
+		// TextViewController_Price_Spa_Details
+		// .setText(ArrayList_AllPriceForServiceList
+		// .get(position));
+		// isTherapistset = false;
+		// TextViewController_YourTherapist_Spa_Details
+		// .setText("No Therapist Selected");
+		//
+		// }
+		//
+		// @Override
+		// public void onNothingSelected(AdapterView<?> parentView) {
+		//
+		// }
+		//
+		// });
+		//
+		// date_ButtonController_SpaDetails
+		// .setOnClickListener(new OnClickListener() {
+		//
+		// @Override
+		// public void onClick(View v) {
+		// Log.d("Date controller", "Click");
+		// final Calendar c = Calendar.getInstance();
+		// year = c.get(Calendar.YEAR);
+		// month = c.get(Calendar.MONTH);
+		// day = c.get(Calendar.DAY_OF_MONTH);
+		//
+		// DatePickerDialog dpdFromDate = new DatePickerDialog(
+		// Spa_Details_Activity.this, datePickerListener,
+		// year, month, day);
+		// dpdFromDate.show();
+		// isTherapistset = false;
+		// TextViewController_YourTherapist_Spa_Details
+		// .setText("No Therapist Selected");
+		//
+		// }
+		// });
+		//
+		// Time_ButtonController_SpaDetails
+		// .setOnClickListener(new OnClickListener() {
+		// @Override
+		// public void onClick(View v) {
+		// final Calendar c = Calendar.getInstance();
+		// hour = c.get(Calendar.HOUR_OF_DAY);
+		// minute = c.get(Calendar.MINUTE);
+		//
+		// TimePickerDialog dpdFromDate = new TimePickerDialog(
+		// Spa_Details_Activity.this, timePickerListener,
+		// hour, minute, false);
+		// dpdFromDate.show();
+		// isTherapistset = false;
+		// TextViewController_YourTherapist_Spa_Details
+		// .setText("No Therapist Selected");
+		// }
+		// });
+		//
+		// MakeAppointment_ButtonController
+		// .setOnClickListener(new OnClickListener() {
+		// @Override
+		// public void onClick(View v) {
+		//
+		// if (isTherapistset) {
+		// new MakeAnAppointment().execute();
+		// } else {
+		// Toast.makeText(Spa_Details_Activity.this,
+		// "Please Choose Therapist ... !",
+		// Toast.LENGTH_LONG).show();
+		// // Log.d("Price iD", ArrayList_AllIDForServiceList
+		// // .get(SpinnerController_TimeForServicelist
+		// // .getSelectedItemPosition()));
+		//
+		// }
+		//
+		// }
+		// });
+		//
+		// ButtonController_ChooseTherapist_SpaDetails
+		// .setOnClickListener(new OnClickListener() {
+		//
+		// @SuppressLint("SimpleDateFormat")
+		// @Override
+		// public void onClick(View v) {
+		//
+		// // Util.Spa_Name =
+		// SpinnerController_SpaList_Spa_Details.getSelectedItem().toString();
+		// Util.Spa_Name = Spa_Name;
+		// Calendar Appointment_TimeStamp = Calendar.getInstance();
+		//
+		// Appointment_TimeStamp.set(Calendar.DAY_OF_MONTH, day);
+		// Appointment_TimeStamp.set(Calendar.MONTH, month - 1);
+		// Appointment_TimeStamp.set(Calendar.YEAR, year);
+		// Appointment_TimeStamp.set(Calendar.HOUR, hour);
+		// Appointment_TimeStamp.set(Calendar.MINUTE, minute);
+		// Appointment_TimeStamp.set(Calendar.AM_PM, AM_PM);
+		//
+		// SimpleDateFormat formatter = new SimpleDateFormat(
+		// "yyyy-MM-dd HH:mm:ss");
+		// Util.Appointment_Time = formatter
+		// .format(Appointment_TimeStamp.getTime());
+		// Log.d("Appointment_Time", "" + Util.Appointment_Time);
+		//
+		// // Create The Intent and Start The Activity to get The
+		// // message
+		// Intent intentGetMessage = new Intent(
+		// Spa_Details_Activity.this,
+		// SetTherapistActivity.class);
+		// intentGetMessage
+		// .putExtra(
+		// "Therapies_Id",
+		// ArrayList_AllTherapiesIdList
+		// .get(SpinnerController_TherapyList_Spa_Details
+		// .getSelectedItemPosition()));
+		// startActivityForResult(intentGetMessage, 2);// Activity
+		// // is
+		// // started
+		// // with
+		// // requestCode
+		// // 2
+		// isTherapistset = false;
+		// TextViewController_YourTherapist_Spa_Details
+		// .setText("No Therapist Selected");
+		// }
+		// });
+		//
+		// btn_view_spa_profile.setOnClickListener(new View.OnClickListener() {
+		//
+		// @Override
+		// public void onClick(View v) {
+		// // TODO Auto-generated method stub
+		//
+		// Intent i=new Intent(Spa_Details_Activity.this,Spa_Profile.class);
+		// startActivity(i);
+		// }
+		// });
+		// // Toast.makeText(getApplicationContext(), Spa_Name+ "\n"+Spa_Id,
+		// // Toast.LENGTH_LONG).show();
+		//
+		// new GetTherapies().execute();
 
 	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -362,6 +375,7 @@ public class Spa_Details_Activity extends FragmentActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
@@ -402,25 +416,21 @@ public class Spa_Details_Activity extends FragmentActivity {
 			hour = selectedHour;
 			minute = selectedMinute;
 
-			if (hour < 12) 
-			{
+			if (hour < 12) {
 				AM_PM = 00;
-				
+
 				// set current time into textview
 				AppointmentTime_TextViewController_Spa_Details
 						.setText(new StringBuilder().append(pad(hour))
 								.append(":").append(pad(minute)).append(":")
 								.append("AM"));
 
-			} 
-			else 
-			{
+			} else {
 				hour = hour - 12;
-				if (hour == 0) 
-				{
+				if (hour == 0) {
 					hour = 12;
 				}
-				
+
 				// set current time into textview
 				AppointmentTime_TextViewController_Spa_Details
 						.setText(new StringBuilder().append(pad(hour))
@@ -441,8 +451,9 @@ public class Spa_Details_Activity extends FragmentActivity {
 
 	/**
 	 * Get All Therapies of a particular Spa
+	 * 
 	 * @author Pallavi
-	 *
+	 * 
 	 */
 	class GetTherapies extends AsyncTask<String, String, String> {
 
@@ -789,8 +800,7 @@ public class Spa_Details_Activity extends FragmentActivity {
 							json.getInt("Appointment_Id"), myIntent, 0);
 
 					AlarmManager alarmManager = (AlarmManager) Spa_Details_Activity.this
-							.getSystemService(
-									Spa_Details_Activity.this.ALARM_SERVICE);
+							.getSystemService(Spa_Details_Activity.this.ALARM_SERVICE);
 					alarmManager.set(AlarmManager.RTC,
 							(Alarm_Time.getTimeInMillis()), pendingIntent);
 					return json.getString(TAG_MESSAGE);

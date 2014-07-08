@@ -4,13 +4,13 @@
     <item
         android:state_pressed="true">
         <shape android:shape="rectangle">
-            <solid android:color="#4e3115"/>
+            <solid android:color="#462c12"/>
         </shape>
     </item>
     <item 
         android:state_selected="true">
         <shape android:shape="rectangle">
-            <solid android:color="#4e3115"/>
+            <solid android:color="#462c12"/>
         </shape>
     </item>
     <item android:drawable="@drawable/spinner_default_holo_dark"></item>

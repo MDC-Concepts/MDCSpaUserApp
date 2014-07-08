@@ -24,12 +24,12 @@ public final class R {
 		public static final int textSize = 0x7f01006c;
 	}
 	public static final class drawable {
-		public static final int header = 0x7f0200ab;
-		public static final int ic_launcher = 0x7f0200b6;
-		public static final int icon = 0x7f0200c7;
-		public static final int login_gradient = 0x7f0200cf;
-		public static final int login_gradient_flip = 0x7f0200d0;
-		public static final int logo = 0x7f0200d1;
+		public static final int header = 0x7f0200ad;
+		public static final int ic_launcher = 0x7f0200b8;
+		public static final int icon = 0x7f0200c9;
+		public static final int login_gradient = 0x7f0200d1;
+		public static final int login_gradient_flip = 0x7f0200d2;
+		public static final int logo = 0x7f0200d3;
 	}
 	public static final class id {
 		public static final int RelativeLayout01 = 0x7f050107;
@@ -47,9 +47,9 @@ public final class R {
 		public static final int vf_login_flipper = 0x7f0500fd;
 	}
 	public static final class layout {
-		public static final int main = 0x7f030038;
-		public static final int progress_spinner = 0x7f03003d;
-		public static final int progress_wheel_activity = 0x7f03003e;
+		public static final int main = 0x7f03003a;
+		public static final int progress_spinner = 0x7f03003f;
+		public static final int progress_wheel_activity = 0x7f030040;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f0a000e;

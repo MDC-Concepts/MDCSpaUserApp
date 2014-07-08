@@ -1,8 +1,7 @@
-<android.support.v4.widget.DrawerLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-android:id="@+id/drawer_layout1"
-android:layout_width="match_parent"
-android:layout_height="match_parent">
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 
     <FrameLayout
         android:id="@+id/frame_container1"
@@ -17,6 +16,8 @@ android:layout_height="match_parent">
             android:layout_marginTop="?android:attr/actionBarSize" />
     </FrameLayout>
 
+    
+
     <ListView
         android:id="@+id/list_slidermenu1"
         android:layout_width="match_parent"
@@ -26,6 +27,7 @@ android:layout_height="match_parent">
         android:choiceMode="singleChoice"
         android:divider="@color/list_divider"
         android:dividerHeight="0dp"
+        android:layout_weight="1"
         android:listSelector="@drawable/list_selector" />
 
 </android.support.v4.widget.DrawerLayout>

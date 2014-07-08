@@ -26,7 +26,6 @@ public class NearestSpaListviewAdapter extends BaseAdapter {
 	TextView Txt_Spa_Name, Txt_Spa_Area;
 	String Spa_Id;
 	int count;
-
 	Context context;
 	public NearestSpaListviewAdapter(Activity a,
 			ArrayList<HashMap<String, String>> data) {
@@ -62,9 +61,9 @@ public class NearestSpaListviewAdapter extends BaseAdapter {
 		final View rootView = inflater.inflate(R.layout.spa_list_item, null,
 				true);
 
-		Button btn_choose = (Button) rootView.findViewById(R.id.btn_choose);
 
 		context=rootView.getContext();
+		
 		Txt_Spa_Name = (TextView) rootView.findViewById(R.id.txt_list_spa_name);
 
 		Txt_Spa_Area = (TextView) rootView
@@ -73,47 +72,19 @@ public class NearestSpaListviewAdapter extends BaseAdapter {
 		Typeface font = Typeface.createFromAsset(activity.getAssets(),
 				"Raleway-Light.otf");
 
-		Txt_Spa_Name.setTypeface(font);
+//		Txt_Spa_Name.setTypeface(font);
 		Txt_Spa_Area.setTypeface(font);
-		btn_choose.setTypeface(font);
+		Txt_Spa_Name.setTypeface(font, Typeface.BOLD);
 
 		HashMap<String, String> spaDetails = new HashMap<String, String>();
 
 		spaDetails = data.get(position);
 
-	
+	rootView.setTag(spaDetails);
 		Txt_Spa_Name.setText(spaDetails.get("spa_name"));
 		Txt_Spa_Area.setText(spaDetails.get("spa_addr"));
 		
-		btn_choose.setTag(spaDetails);
 	
-
-		btn_choose.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				@SuppressWarnings("unchecked")
-				HashMap<String, String> spaDetails=(HashMap<String, String>) v.getTag();
-//				String Spa_Id=spaDetails.get("spa_id");
-//				String Spa_Name=spaDetails.get("spa_name");
-//				String Spa_Address=spaDetails.get("spa_addr");
-//				String Spa_Lat=spaDetails.get("spa_lat");
-//				String Spa_Long=spaDetails.get("spa_long");
-				
-			
-				Intent i = new Intent(context, SearchSpaActivity.class);
-				i.putExtra("spaDetails", spaDetails);
-				/*i.putExtra("Spa_Id", Spa_Id);
-				i.putExtra("Spa_Name", Spa_Name);
-				i.putExtra("Spa_Address", Spa_Address);
-				i.putExtra("Spa_Lat", Spa_Lat);
-				i.putExtra("Spa_Long", Spa_Long);
-				i.putStringArrayListExtra(name, value)*/
-				activity.startActivity(i);
-
-			}
-		});
 		return rootView;
 	}
 

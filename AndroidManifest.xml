@@ -49,8 +49,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-         <!-- Main Activity -->
+
+        <!-- Main Activity -->
         <activity
             android:name="org.mdcconcepts.com.mdcspauserapp.MainActivity"
             android:label="@string/app_name"
@@ -61,7 +61,7 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
-        
+
         <!-- SignUp Activity -->
         <activity
             android:name="org.mdcconcepts.com.mdcspauserapp.signup.SignUpActivity"
@@ -70,14 +70,14 @@
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen"
             android:windowSoftInputMode="stateHidden" >
         </activity>
-        
+
         <!-- Profile Module -->
         <activity
             android:name="org.mdcconcepts.com.mdcspauserapp.profile.MyProfileViewPager"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
-         <activity
+        <activity
             android:name="org.mdcconcepts.com.mdcspauserapp.profile.ProfileFragment"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
@@ -87,8 +87,8 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
-        
-       <!-- Find Spa Module -->
+
+        <!-- Find Spa Module -->
         <activity
             android:name="org.mdcconcepts.com.mdcspauserapp.findspa.Spa_Details_Activity"
             android:label="@string/app_name"
@@ -99,7 +99,12 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
-        
+        <activity
+            android:name="org.mdcconcepts.com.mdcspauserapp.findspa.SpaProfileActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+
         <!-- Make an Appointment Activity -->
         <activity
             android:name="org.mdcconcepts.com.mdcspauserapp.makeappointment.SetTherapistActivity"
@@ -131,7 +136,6 @@
             android:screenOrientation="portrait" >
         </activity>
 
-        
         <service
             android:name="org.mdcconcepts.com.mdcspauserapp.notification.MyAlarmService"
             android:enabled="true" />
@@ -148,6 +152,10 @@
         <activity
             android:name="org.mdcconcepts.com.mdcspauserapp.Test"
             android:label="@string/title_activity_test" >
+        </activity>
+        <activity
+            android:name="org.mdcconcepts.com.mdcspauserapp.SpaProfileActivity"
+            android:label="@string/title_activity_spa_profile" >
         </activity>
     </application>
 
