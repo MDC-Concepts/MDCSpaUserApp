@@ -64,7 +64,7 @@ public class ProfileListViewAdapter extends BaseAdapter {
 						ImageView_TabIcon.setImageResource(R.drawable.ic_personal_info);
 						break;
 				case 1:// Injuries/Diseases
-					TextView_TabText.setText("Injuries/Diseases");
+					TextView_TabText.setText("Fitness Details");
 					ImageView_TabIcon.setImageResource(R.drawable.ic_injuries);
 					break;
 				case 2:// Payment Details

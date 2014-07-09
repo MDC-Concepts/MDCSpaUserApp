@@ -3,15 +3,22 @@ package org.mdcconcepts.com.mdcspauserapp.findspa;
 import java.util.Locale;
 
 import org.mdcconcepts.com.mdcspauserapp.R;
+import org.mdcconcepts.com.mdcspauserapp.util.Util;
 
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.TypefaceSpan;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,6 +43,8 @@ public class SpaProfileActivity extends Activity implements
 	 */
 	ViewPager mViewPager;
 
+	Typeface font;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,6 +58,7 @@ public class SpaProfileActivity extends Activity implements
 		// primary sections of the activity.
 		mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
 
+		font = Typeface.createFromAsset(getAssets(), Util.fontPath);
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
@@ -64,16 +74,61 @@ public class SpaProfileActivity extends Activity implements
 					}
 				});
 
+		SpannableString s = new SpannableString("Spa Profile");
+		// s.setSpan(new TypefaceSpan(SpaProfileActivity.this, Util.fontPath),
+		// 0, s.length(),
+		// Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		int titleId = getResources().getIdentifier("action_bar_title", "id",
+				"android");
+		TextView yourTextView = (TextView) findViewById(titleId);
+		yourTextView.setTypeface(font);
+
+		TextView t1 = new TextView(this);
+		t1.setTypeface(font);
+		t1.setTextColor(Color.parseColor("#4e3115"));
+		t1.setText("Spa Profile");
+		t1.setTextSize(18);
+		t1.setGravity(Gravity.CENTER_HORIZONTAL);
+		t1.setPadding(10, 20, 10, 10);
+		actionBar.addTab(actionBar.newTab().setTabListener(this)
+				.setCustomView(t1));
+
+		TextView t2 = new TextView(this);
+		t2.setTypeface(font);
+		t2.setTextColor(Color.parseColor("#4e3115"));
+		t2.setTextSize(18);
+		t2.setText("Threapies Details");
+		t2.setGravity(Gravity.CENTER_HORIZONTAL);
+		t2.setPadding(0, 20, 0, 0);
+		actionBar.addTab(actionBar.newTab().setTabListener(this)
+				.setCustomView(t2));
+		
+		TextView t3 = new TextView(this);
+		t3.setTypeface(font);
+		t3.setTextColor(Color.parseColor("#4e3115"));
+		t3.setTextSize(18);
+		t3.setText("Therapists Details");
+		t3.setGravity(Gravity.CENTER_HORIZONTAL);
+		t3.setPadding(0, 20, 0, 0);
+		
+		actionBar.addTab(actionBar.newTab()
+				.setTabListener(this).setCustomView(t3));
+
 		// For each of the sections in the app, add a tab to the action bar.
-		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
-			// Create a tab with text corresponding to the page title defined by
-			// the adapter. Also specify this Activity object, which implements
-			// the TabListener interface, as the callback (listener) for when
-			// this tab is selected.
-			actionBar.addTab(actionBar.newTab()
-					.setText(mSectionsPagerAdapter.getPageTitle(i))
-					.setTabListener(this));
-		}
+		/*
+		 * for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) { //
+		 * Create a tab with text corresponding to the page title defined by //
+		 * the adapter. Also specify this Activity object, which implements //
+		 * the TabListener interface, as the callback (listener) for when //
+		 * this tab is selected. /*actionBar.addTab(actionBar.newTab()
+		 * .setText(mSectionsPagerAdapter.getPageTitle(i))
+		 * .setTabListener(this)); SpannableString s = new SpannableString(
+		 * mSectionsPagerAdapter.getPageTitle(i)); s.setSpan(new
+		 * TypefaceSpan(Util.fontPath), 0, s.length(),
+		 * Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		 * actionBar.addTab(actionBar.newTab().setText(s)
+		 * .setTabListener(this)); }
+		 */
 	}
 
 	@Override
@@ -137,7 +192,7 @@ public class SpaProfileActivity extends Activity implements
 				fragment = new SpaInfoFragment();
 				return fragment;
 			case 1:
-				fragment = new SpaInfoFragment();
+				fragment = new SpaTherapiesFragment();
 				return fragment;
 			case 2:
 				fragment = new SpaInfoFragment();

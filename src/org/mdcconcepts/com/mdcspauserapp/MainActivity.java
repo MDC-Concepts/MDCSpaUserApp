@@ -280,13 +280,13 @@ public class MainActivity extends Activity {
 			break;
 
 		case 5:
-			fragment = new HomeFragment();
+			fragment = new GiftCardFragment();
 			// fragment = new WhatsHotFragment();
 			break;
 
 		case 6:
-			// fragment = new HomeFragment();
-			fragment = new GiftCardFragment();
+			 fragment = new HomeFragment();
+			
 			break;
 
 		case 7: 	fragment = new HomeFragment();

@@ -21,6 +21,8 @@ public class PathJSONParser
 		JSONArray jRoutes = null;
 		JSONArray jLegs = null;
 		JSONArray jSteps = null;
+		 JSONObject jDistance = null;
+		 JSONObject jDuration = null;
 		try
 		{
 			jRoutes = jObject.getJSONArray("routes");
@@ -29,6 +31,7 @@ public class PathJSONParser
 			for (int i = 0; i < jRoutes.length(); i++) 
 			{
 				jLegs = ((JSONObject) jRoutes.get(i)).getJSONArray("legs");
+				
 				List<HashMap<String, String>> path = new ArrayList<HashMap<String, String>>();
  
 				/** Traversing all legs */
@@ -36,6 +39,20 @@ public class PathJSONParser
 				{
 					jSteps = ((JSONObject) jLegs.get(j)).getJSONArray("steps");
  
+					 /** Getting distance from the json data */
+                    jDistance = ((JSONObject) jLegs.get(j)).getJSONObject("distance");
+                    HashMap<String, String> hmDistance = new HashMap<String, String>();
+                    hmDistance.put("distance", jDistance.getString("text"));
+                    
+                    jDuration = ((JSONObject) jLegs.get(j)).getJSONObject("duration");
+                    HashMap<String, String> hmDuration = new HashMap<String, String>();
+                    hmDuration.put("duration", jDuration.getString("text"));
+                    
+                    /** Adding distance object to the path */
+                    path.add(hmDistance);
+ 
+                    /** Adding duration object to the path */
+                    path.add(hmDuration);
 					/** Traversing all steps */
 					for (int k = 0; k < jSteps.length(); k++)
 					{

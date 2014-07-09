@@ -4,113 +4,112 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-  
-   <ScrollView
+    <ScrollView
         android:id="@+id/scrollView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-         >
-<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical" >
-    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="250dp"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/sp_profile_cover" >
-        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"  android:layout_marginTop="50dp">
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="130dp" >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="80dp"
-                android:src="@drawable/profile_pic_bg" />
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="250dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/sp_profile_cover" >
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="130dp" >
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="80dp"
+                        android:src="@drawable/profile_pic_bg" />
+
+                    <TextView
+                        android:id="@+id/txt_spa_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/imageView2"
+                        android:layout_marginBottom="25dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_toRightOf="@+id/imageView2"
+                        android:text="Aura Thai Spa"
+                        android:textColor="#4e3315"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBar1"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/txt_spa_name"
+                        android:layout_alignParentBottom="true"
+                        android:numStars="5"
+                        android:rating="3" />
+                </RelativeLayout>
+            </RelativeLayout>
 
             <TextView
-                android:id="@+id/txt_spa_name"
+                android:id="@+id/txt_spa_dec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/imageView2"
-                android:layout_marginBottom="25dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_toRightOf="@+id/imageView2"
-                android:text="Aura Thai Spa"
-                android:textColor="#4e3315"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:layout_margin="10sp"
+                android:padding="10sp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                android:textColor="#4e3315" />
 
-              <RatingBar
-                  android:id="@+id/ratingBar1"
-                  style="?android:attr/ratingBarStyleSmall"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_alignLeft="@+id/txt_spa_name"
-                  android:layout_alignParentBottom="true"
-                  android:numStars="5"
-                  android:rating="3" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10sp" >
 
-        </RelativeLayout>
-        
-        
-    </RelativeLayout>
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/ic_location" />
 
-    <TextView
-        android:id="@+id/txt_spa_dec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10sp"
-        android:padding="10sp"
-        android:textColor="#4e3315"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
+                <TextView
+                    android:id="@+id/txt_spa_addr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20sp"
+                    android:text="MDC Corporation (India) Pvt. Ltd. 3rd Floor, Deccan Avenue Building, Jangali Maharaj Road, Near PMT Bus Depot, Deccan Gymkhana, Pune – 411005." />
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:orientation="horizontal"
-        android:padding="10sp" >
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="20dp"
-        android:src="@drawable/ic_location" />
+            <Button
+                android:id="@+id/Btn_Skip_Injuries_Fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center_vertical"
+                android:layout_marginTop="10sp"
+                android:background="@drawable/button_default_bg"
+                android:paddingBottom="2sp"
+                android:paddingLeft="10sp"
+                android:paddingRight="10sp"
+                android:paddingTop="2sp"
+                android:text="Make an Appointment"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
 
-    <TextView
-        android:id="@+id/txt_spa_addr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20sp"
-        android:text="MDC Corporation (India) Pvt. Ltd. 3rd Floor, Deccan Avenue Building, Jangali Maharaj Road, Near PMT Bus Depot, Deccan Gymkhana, Pune – 411005." />
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/Btn_Skip_Injuries_Fragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|center_vertical"
-        android:background="@drawable/button_default_bg"
-        android:textColor="#ffffff"
-        android:paddingLeft="10sp"
-         android:paddingRight="10sp"
-         android:paddingTop="2sp"
-         android:paddingBottom="2sp"
-        android:textSize="14sp"
-        android:layout_marginTop="10sp"
-        android:text="Make an Appointment" />
-    </LinearLayout>
-</ScrollView>
 </LinearLayout>

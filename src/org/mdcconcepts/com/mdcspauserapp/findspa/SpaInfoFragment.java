@@ -15,6 +15,8 @@ public class SpaInfoFragment extends Fragment {
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		View rootview=inflater.inflate(R.layout.activity_spa_details, null);
+		
+		
 		return rootview;
 	}
 }

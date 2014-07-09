@@ -1,0 +1,281 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="10" >
+
+    <org.mdcconcepts.com.mdcspauserapp.customitems.FontTextView
+        android:id="@+id/FontTextView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="?android:attr/actionBarSize"
+        android:text="Let us know about yourself.."
+        android:textSize="20sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            
+            <Button
+                android:id="@+id/Btn_Skip_Injuries_Fragment"
+                android:layout_width="@dimen/Button_Width"
+                android:layout_height="@dimen/Button_Height"
+                android:layout_gravity="right"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_default_bg"
+                android:text="Skip"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/Button_TextSize" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:weightSum="10" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4.8" >
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.4"
+                    android:focusable="false" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:weightSum="2" >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2.0" >
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="508dp" >
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_Calf_Selection"
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_alignLeft="@+id/ImageView_Controller_Activity_BodyPart_Thigh_Selection"
+                                android:layout_below="@+id/ImageView_Controller_Activity_BodyPart_thigh"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="30dp"
+                                android:src="@drawable/body_selection"
+                                android:visibility="invisible" />
+
+                            <org.mdcconcepts.com.mdcspauserapp.customitems.FontTextView
+                                android:id="@+id/FontTextView01"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_weight="1"
+                                android:paddingLeft="15dp"
+                                android:text="(Please click on your paining area in picture)"
+                                android:textSize="16sp" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_Head"
+                                android:layout_width="70dp"
+                                android:layout_height="45dp"
+                                android:layout_below="@+id/FontTextView01"
+                                android:layout_toLeftOf="@+id/ImageView_Controller_Activity_BodyPart_Thigh_Selection"
+                                android:background="@drawable/head" />
+
+                            <ImageView
+                                android:id="@+id/imageView1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="350dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="70dp"
+                                android:src="@drawable/human_body" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_Thigh_Selection"
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_alignBottom="@+id/ImageView_Controller_Activity_BodyPart_thigh"
+                                android:layout_marginBottom="19dp"
+                                android:layout_marginLeft="13dp"
+                                android:layout_toRightOf="@+id/ImageView_Controller_Activity_BodyPart_Back_Selection"
+                                android:src="@drawable/body_selection"
+                                android:visibility="invisible" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_Neck"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_alignTop="@+id/imageView1"
+                                android:layout_toLeftOf="@+id/ImageView_Controller_Activity_BodyPart_Head"
+                                android:background="@drawable/neck" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_Waist_Selection"
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_below="@+id/ImageView_Controller_Activity_BodyPart_arm"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_toLeftOf="@+id/ImageView_Controller_Activity_BodyPart_Neck_Selection"
+                                android:src="@drawable/body_selection"
+                                android:visibility="invisible" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_Head_Selection"
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_below="@+id/ImageView_Controller_Activity_BodyPart_Head"
+                                android:layout_centerHorizontal="true"
+                                android:src="@drawable/body_selection"
+                                android:visibility="invisible" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_waist"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_above="@+id/ImageView_Controller_Activity_BodyPart_thigh"
+                                android:layout_alignLeft="@+id/ImageView_Controller_Activity_BodyPart_arm"
+                                android:background="@drawable/waist"
+                                android:visibility="visible" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_arm"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_above="@+id/ImageView_Controller_Activity_BodyPart_waist"
+                                android:layout_alignLeft="@+id/ImageView_Controller_Activity_BodyPart_Shoulder"
+                                android:background="@drawable/arm"
+                                android:visibility="visible" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_Shoulder"
+                                android:layout_width="110dp"
+                                android:layout_height="50dp"
+                                android:layout_below="@+id/ImageView_Controller_Activity_BodyPart_Neck"
+                                android:layout_toLeftOf="@+id/ImageView_Controller_Activity_BodyPart_Head"
+                                android:background="@drawable/shoulder" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_Back_Selection"
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_above="@+id/ImageView_Controller_Activity_BodyPart_arm"
+                                android:layout_alignLeft="@+id/ImageView_Controller_Activity_BodyPart_Head_Selection"
+                                android:src="@drawable/body_selection"
+                                android:visibility="invisible" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_Shoulder_Selection"
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_above="@+id/ImageView_Controller_Activity_BodyPart_Back_Selection"
+                                android:layout_alignLeft="@+id/ImageView_Controller_Activity_BodyPart_Head"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginLeft="17dp"
+                                android:src="@drawable/body_selection"
+                                android:visibility="invisible" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_Sole_Selection"
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_alignBottom="@+id/imageView1"
+                                android:layout_alignLeft="@+id/ImageView_Controller_Activity_BodyPart_Calf_Selection"
+                                android:layout_marginBottom="5dp"
+                                android:src="@drawable/body_selection"
+                                android:visibility="invisible" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_sole"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_alignBottom="@+id/imageView1"
+                                android:layout_alignRight="@+id/ImageView_Controller_Activity_BodyPart_calf"
+                                android:layout_marginRight="27dp"
+                                android:background="@drawable/sole"
+                                android:visibility="visible" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_calf"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_above="@+id/ImageView_Controller_Activity_BodyPart_sole"
+                                android:layout_toRightOf="@+id/imageView1"
+                                android:background="@drawable/calf"
+                                android:visibility="visible" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_back"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_alignLeft="@+id/ImageView_Controller_Activity_BodyPart_thigh"
+                                android:layout_below="@+id/ImageView_Controller_Activity_BodyPart_Arm_Selection"
+                                android:background="@drawable/back"
+                                android:visibility="visible" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_thigh"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:layout_above="@+id/ImageView_Controller_Activity_BodyPart_calf"
+                                android:layout_alignRight="@+id/FontTextView01"
+                                android:background="@drawable/thigh"
+                                android:visibility="visible" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_Arm_Selection"
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_alignBottom="@+id/ImageView_Controller_Activity_BodyPart_arm"
+                                android:layout_alignRight="@+id/ImageView_Controller_Activity_BodyPart_Shoulder_Selection"
+                                android:layout_marginRight="5dp"
+                                android:src="@drawable/body_selection"
+                                android:visibility="invisible" />
+
+                            <ImageView
+                                android:id="@+id/ImageView_Controller_Activity_BodyPart_Neck_Selection"
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_below="@+id/ImageView_Controller_Activity_BodyPart_Neck"
+                                android:layout_toLeftOf="@+id/ImageView_Controller_Activity_BodyPart_Head_Selection"
+                                android:src="@drawable/body_selection"
+                                android:visibility="invisible" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4.8" >
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="564dp" >
+    </RelativeLayout>
+
+</LinearLayout>

@@ -175,5 +175,5 @@ public class Util {
 	public static ArrayList<String> UserDisease = new ArrayList<String>();
  	
 	public static FragmentManager fm;
-	
+	 public static String DISTANCE="";
 }

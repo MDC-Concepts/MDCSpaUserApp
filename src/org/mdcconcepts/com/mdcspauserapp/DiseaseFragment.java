@@ -5,13 +5,10 @@ import java.util.List;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.mdcconcepts.com.mdcspauserapp.serverhandler.JSONParser;
 import org.mdcconcepts.com.mdcspauserapp.util.Util;
-
-import com.todddavies.components.progressbar.ProgressWheel;
 
 import android.app.Dialog;
 import android.graphics.Typeface;
@@ -27,6 +24,8 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
+import com.todddavies.components.progressbar.ProgressWheel;
 
 public class DiseaseFragment extends Fragment {
 
